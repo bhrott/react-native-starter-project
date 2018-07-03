@@ -1,25 +1,29 @@
 {
-  "name": "ReactNativeStarterProject",
-  "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
-  },
-  "dependencies": {
-    "prop-types": "^15.6.2",
-    "react": "16.3.1",
-    "react-native": "0.55.4",
-    "react-native-extended-stylesheet": "^0.8.1",
-    "react-navigation": "^2.5.5"
-  },
-  "devDependencies": {
-    "babel-jest": "23.2.0",
-    "babel-preset-react-native": "4.0.0",
-    "jest": "23.2.0",
-    "react-test-renderer": "16.3.1"
-  },
-  "jest": {
-    "preset": "react-native"
-  }
+    "name": "ReactNativeStarterProject",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "start": "node node_modules/react-native/local-cli/cli.js start",
+        "test": "jest",
+        "create-state": "node tasks/generate-state.js"
+    },
+    "dependencies": {
+        "prop-types": "^15.6.2",
+        "react": "16.3.1",
+        "react-native": "0.55.4",
+        "react-native-extended-stylesheet": "^0.8.1",
+        "react-navigation": "^2.5.5",
+        "react-redux": "^5.0.7",
+        "redux": "^4.0.0"
+    },
+    "devDependencies": {
+        "babel-jest": "23.2.0",
+        "babel-preset-react-native": "4.0.0",
+        "jest": "23.2.0",
+        "react-test-renderer": "16.3.1",
+        "redux-devtools": "^3.4.1"
+    },
+    "jest": {
+        "preset": "react-native"
+    }
 }

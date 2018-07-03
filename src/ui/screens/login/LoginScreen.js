@@ -1,24 +1,33 @@
 import React from 'react'
 import { View, Button } from 'react-native'
 import EStyleSheet from 'react-native-extended-stylesheet'
+import { connect } from 'react-redux'
 
 import { Text } from '@ui/components'
-import { NavigationService } from '@ui/services'
+import { signIn } from '@state/login'
 
 import BaseScreen from '../BaseScreen'
 
-export default class LoginScreen extends BaseScreen {
-    constructor(props) {
-        super(props)
-    }
+const mapStateToProps = state => {
+    return state.login
+}
 
+const mapDispatchToProps = dispatch => {
+    return {
+        signIn: (email, password) => {
+            dispatch(signIn(email, password))
+        }
+    }
+}
+
+class LoginScreen extends BaseScreen {
     renderContent() {
         return (
             <View style={styles.container}>
-                <Text textKey={'hello'} />
+                <Text textKey={this.props.message} />
                 <Button
                     onPress={() => {
-                        NavigationService.pushToHome()
+                        this.props.signIn('ben@cwi.com', '123')
                     }}
                     title="Go To Home"
                     color={EStyleSheet.value('$colorPrimary')}
@@ -35,3 +44,8 @@ const styles = EStyleSheet.create({
         justifyContent: 'center'
     }
 })
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(LoginScreen)
