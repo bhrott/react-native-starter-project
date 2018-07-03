@@ -5,7 +5,8 @@
     "scripts": {
         "start": "node node_modules/react-native/local-cli/cli.js start",
         "test": "jest",
-        "create-state": "node tasks/generate-state.js"
+        "create-state": "node tasks/create-state.js",
+        "create-screen": "node tasks/create-screen.js"
     },
     "dependencies": {
         "prop-types": "^15.6.2",
