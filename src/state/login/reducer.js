@@ -1,3 +1,6 @@
+import appStore from '@state'
+import { push } from '@state/navigation'
+
 import { ACTION_SIGNIN, ACTION_SIGNOUT } from './actions'
 
 const initialState = {
@@ -7,20 +10,18 @@ const initialState = {
     validation: {
         email: {
             isValid: true,
-            message: 'login:invalid-email-field'
+            message: 'login:invalid-email-field-message'
         },
         password: {
             isValid: true,
-            message: 'login:invalid-password-field'
+            message: 'login:invalid-password-field-message'
         }
     }
 }
 
-const testState = {
-    message: ''
-}
+function resolveSignin(state, action) {}
 
-function loginReducer(state = testState, action) {
+function loginReducer(state = initialState, action) {
     switch (action.type) {
         case ACTION_SIGNIN:
             return Object.assign({}, state, {

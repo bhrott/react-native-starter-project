@@ -24,7 +24,7 @@ class LoginScreen extends BaseScreen {
     renderContent() {
         return (
             <View style={styles.container}>
-                <Text textKey={this.props.message} />
+                <Text textKey={this.props.email} />
                 <Button
                     onPress={() => {
                         this.props.signIn('ben@cwi.com', '123')
