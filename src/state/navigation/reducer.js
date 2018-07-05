@@ -58,7 +58,7 @@ function resolvePop(state) {
     let newState = Object.assign({}, state)
     newState.history.pop()
     newState.current = state.history.last()
-    newState.type = 'pop'
+    newState.current.type = 'pop'
 
     return newState
 }

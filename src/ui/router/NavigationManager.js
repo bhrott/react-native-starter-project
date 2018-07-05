@@ -15,7 +15,6 @@ function handleAppStateChanged(state) {
     const { routeName, type, params } = state.current
 
     if (currentRouteName === routeName) {
-        console.log(`skip route handle`)
         return
     }
 
@@ -61,5 +60,9 @@ function popRoute() {
 export default class NavigationManager {
     static useNavigator(navigator) {
         _navigator = navigator
+    }
+
+    static comunicateChanged() {
+        console.log('comunicateChanged', _navigator)
     }
 }

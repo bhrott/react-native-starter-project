@@ -6,6 +6,18 @@ import { SafeAreaView } from '@ui/components'
 export default class BaseScreen extends React.Component {
     constructor(props) {
         super(props)
+
+        this._didBlurEvent = null
+    }
+
+    componentDidMount() {
+        this._didBlurEvent = this.props.navigation.addListener('didBlur', payload => {
+            console.log('BaseScreen.didBlur', payload)
+        })
+    }
+
+    componentWillMount() {
+        this._didBlurEvent && this._didBlurEvent.remove()
     }
 
     /**

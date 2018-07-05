@@ -9,7 +9,7 @@ import { pop } from '@state/navigation'
 import BaseScreen from '../BaseScreen'
 
 const mapStateToProps = state => {
-    return state
+    return {}
 }
 
 const mapDispatchToProps = dispatch => {
