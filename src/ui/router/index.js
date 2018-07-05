@@ -3,7 +3,9 @@
  */
 
 import RootRouter from './RootRouter'
+import NavigationManager from './NavigationManager'
 
 module.exports = {
-    RootRouter
+    RootRouter,
+    NavigationManager
 }

@@ -12,12 +12,13 @@ const stateFolder = `./src/state/${stateName}`
 fs.mkdirSync(stateFolder)
 
 const actionsFileContent = `
-const ACTION_FOO = 'ACTION.FOO'
+const prefix = 'ACTION'
+const ACTION_FOO = \`\${prefix}.FOO\`
 
 function foo(myParam) {
     return {
         type: ACTION_FOO,
-        data: {
+        payload: {
 			myParam
         }
     }

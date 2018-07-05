@@ -1,5 +1,5 @@
-import appStore from '@state'
-import { push } from '@state/navigation'
+import appStore from '../store'
+import { push } from '../navigation'
 
 import { ACTION_SIGNIN, ACTION_SIGNOUT } from './actions'
 
@@ -19,7 +19,7 @@ const initialState = {
     }
 }
 
-function resolveSignin(state, action) {}
+function resolveSignin(state, action) { }
 
 function loginReducer(state = initialState, action) {
     switch (action.type) {

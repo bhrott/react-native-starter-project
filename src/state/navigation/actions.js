@@ -1,34 +1,38 @@
 const prefix = 'NAVIGATION'
-const ACTION_PUSH = `${prefix}.PUSH`
-const ACTION_RESET = `${prefix}.RESET`
-const ACTION_POP = `${prefix}.POP`
+export const ACTION_PUSH = `${prefix}.PUSH`
+export const ACTION_RESET = `${prefix}.RESET`
+export const ACTION_POP = `${prefix}.POP`
 
-function push(routeParams) {
+export function push(routeParams) {
     return {
         type: ACTION_PUSH,
-        data: routeParams
+        payload: routeParams
     }
 }
 
-function reset(routeParams) {
+export function reset(routeParams) {
     return {
         type: ACTION_RESET,
-        data: routeParams
+        payload: routeParams
     }
 }
 
-function pop() {
+export function pop() {
     return {
-        type: ACTION_POP
+        type: ACTION_POP,
+        payload: {}
     }
 }
 
-module.exports = {
-    ACTION_PUSH,
-    ACTION_RESET,
-    ACTION_POP,
-
-    push,
-    reset,
-    pop
+export function resetToLogin() {
+    return reset({
+        routeName: 'Login'
+    })
 }
+
+export function goToHome() {
+    return push({
+        routeName: 'Home'
+    })
+}
+

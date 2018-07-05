@@ -1,13 +1,25 @@
-import { combineReducers, createStore } from 'redux'
+import { combineReducers, createStore, applyMiddleware } from 'redux'
+import createSagaMiddleware from 'redux-saga'
 
 import loginReducer from './login/reducer'
 import navigationReducer from './navigation/reducer'
+import loadingReducer from './loading/reducer'
+
+import loadingSagas from './loading/sagas'
 
 const appReducer = combineReducers({
     login: loginReducer,
-    navigation: navigationReducer
+    navigation: navigationReducer,
+    loading: loadingReducer
 })
 
-const appStore = createStore(appReducer)
+const sagaMiddleware = createSagaMiddleware()
+
+const appStore = createStore(
+    appReducer,
+    applyMiddleware(sagaMiddleware)
+)
+
+sagaMiddleware.run(loadingSagas)
 
 export default appStore

@@ -1,10 +1,11 @@
 import { createStackNavigator } from 'react-navigation'
-import { LoginScreen, HomeScreen } from '@ui/screens'
-
-import appStore from '@state'
+import { LoginScreen, HomeScreen, LoadingScreen } from '@ui/screens'
 
 const StackNavigator = createStackNavigator(
     {
+        Loading: {
+            screen: LoadingScreen
+        },
         Home: {
             screen: HomeScreen
         },
@@ -13,12 +14,8 @@ const StackNavigator = createStackNavigator(
         }
     },
     {
-        initialRouteName: 'Login'
+        initialRouteName: 'Loading'
     }
 )
-
-const storeListener = appStore.subscribe(() => {
-    const navigationState = appStore.getState().navigation
-})
 
 export default StackNavigator

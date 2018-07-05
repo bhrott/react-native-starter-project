@@ -2,10 +2,10 @@
  * @providesModule @state/navigation
  */
 
-import { push, reset, pop } from './actions'
+import { goToHome, resetToLogin, pop } from './actions'
 
 module.exports = {
-    push,
-    reset,
+    goToHome,
+    resetToLogin,
     pop
 }

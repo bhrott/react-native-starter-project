@@ -14,9 +14,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        signIn: (email, password) => {
-            dispatch(signIn(email, password))
-        }
+        dispatch
     }
 }
 
@@ -25,13 +23,6 @@ class LoginScreen extends BaseScreen {
         return (
             <View style={styles.container}>
                 <Text textKey={this.props.email} />
-                <Button
-                    onPress={() => {
-                        this.props.signIn('ben@cwi.com', '123')
-                    }}
-                    title="Go To Home"
-                    color={EStyleSheet.value('$colorPrimary')}
-                />
             </View>
         )
     }
