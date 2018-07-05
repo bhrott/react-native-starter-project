@@ -4,7 +4,7 @@ import { View, Button } from 'react-native'
 import { connect } from 'react-redux'
 import EStyleSheet from 'react-native-extended-stylesheet'
 
-import { pop } from '@state/navigation'
+import { goBack } from '@state/navigation'
 
 import BaseScreen from '../BaseScreen'
 
@@ -24,7 +24,7 @@ class HomeScreen extends BaseScreen {
             <View style={styles.container}>
                 <Button
                     onPress={() => {
-                        this.props.dispatch(pop())
+                        goBack()
                     }}
                     title="Go Back"
                     color="#841584"

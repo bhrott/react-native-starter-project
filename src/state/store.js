@@ -2,14 +2,12 @@ import { combineReducers, createStore, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 
 import loginReducer from './login/reducer'
-import navigationReducer from './navigation/reducer'
 import loadingReducer from './loading/reducer'
 
 import loadingSagas from './loading/sagas'
 
 const appReducer = combineReducers({
     login: loginReducer,
-    navigation: navigationReducer,
     loading: loadingReducer
 })
 

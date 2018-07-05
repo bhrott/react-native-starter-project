@@ -1,20 +1,21 @@
 import { createStackNavigator } from 'react-navigation'
 import { LoginScreen, HomeScreen, LoadingScreen } from '@ui/screens'
+import { ROUTE_NAMES } from '@state/navigation'
 
 const StackNavigator = createStackNavigator(
     {
-        Loading: {
+        [ROUTE_NAMES.LOADING]: {
             screen: LoadingScreen
         },
-        Home: {
+        [ROUTE_NAMES.HOME]: {
             screen: HomeScreen
         },
-        Login: {
+        [ROUTE_NAMES.LOGIN]: {
             screen: LoginScreen
         }
     },
     {
-        initialRouteName: 'Loading'
+        initialRouteName: ROUTE_NAMES.LOADING
     }
 )
 

@@ -1,34 +1,21 @@
 import { StackActions, NavigationActions } from 'react-navigation';
-import appStore from '@state'
+import EventEmitter from 'sm-event-emitter'
+import { EVENT_REQUEST_ROUTE_CHANGE, ROUTE_CHANGE_TYPE } from '@state/navigation'
 
 let _navigator = null
+let _requestRouteChangeEventListener = null
 
-const storeListener = appStore.subscribe(() => {
-    const navigationState = appStore.getState().navigation
-    handleAppStateChanged(navigationState)
-})
-
-function handleAppStateChanged(state) {
-    const currentNavigatorRoutes = _navigator.state.nav.routes
-    const currentRouteName = currentNavigatorRoutes[currentNavigatorRoutes.length - 1].routeName
-
-    const { routeName, type, params } = state.current
-
-    if (currentRouteName === routeName) {
-        return
-    }
-
-    if (type === 'push') {
-        return pushToRoute(routeName, params)
-    }
-
-    if (type === 'reset') {
-        return resetToRoute(routeName, params)
-    }
-
-    if (type === 'pop') {
-        return popRoute();
-    }
+function configureListeners() {
+    _requestRouteChangeEventListener = EventEmitter.on(EVENT_REQUEST_ROUTE_CHANGE, payload => {
+        switch (payload.type) {
+            case ROUTE_CHANGE_TYPE.PUSH:
+                return pushToRoute(payload.routeName, payload.routeParams)
+            case ROUTE_CHANGE_TYPE.RESET:
+                return resetToRoute(payload.routeName, payload.routeParams)
+            case ROUTE_CHANGE_TYPE.POP:
+                return popRoute()
+        }
+    })
 }
 
 function pushToRoute(routeName, params) {
@@ -60,9 +47,6 @@ function popRoute() {
 export default class NavigationManager {
     static useNavigator(navigator) {
         _navigator = navigator
-    }
-
-    static comunicateChanged() {
-        console.log('comunicateChanged', _navigator)
+        configureListeners()
     }
 }
