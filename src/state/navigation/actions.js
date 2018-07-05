@@ -1,38 +1,33 @@
-const prefix = 'NAVIGATION'
-export const ACTION_PUSH = `${prefix}.PUSH`
-export const ACTION_RESET = `${prefix}.RESET`
-export const ACTION_POP = `${prefix}.POP`
+import EventEmitter from 'sm-event-emitter'
 
-export function push(routeParams) {
-    return {
-        type: ACTION_PUSH,
-        payload: routeParams
-    }
+export const EVENT_REQUEST_ROUTE_CHANGE = 'NAVIGATION.EVENT_REQUEST_ROUTE_CHANGE'
+export const ROUTE_CHANGE_TYPE = {
+    RESET: 'NAVIGATION.ROUTE_CHANGE_TYPE_RESET',
+    PUSH: 'NAVIGATION.ROUTE_CHANGE_TYPE_PUSH',
+    POP: 'NAVIGATION.ROUTE_CHANGE_TYPE_POP'
 }
-
-export function reset(routeParams) {
-    return {
-        type: ACTION_RESET,
-        payload: routeParams
-    }
-}
-
-export function pop() {
-    return {
-        type: ACTION_POP,
-        payload: {}
-    }
+export const ROUTE_NAMES = {
+    LOADING: 'Loading',
+    LOGIN: 'Login',
+    HOME: 'Home'
 }
 
 export function resetToLogin() {
-    return reset({
-        routeName: 'Login'
-    })
+    requestRouteChange(ROUTE_CHANGE_TYPE.RESET, ROUTE_NAMES.LOGIN)
 }
 
-export function goToHome() {
-    return push({
-        routeName: 'Home'
-    })
+export function pushToHome() {
+    requestRouteChange(ROUTE_CHANGE_TYPE.PUSH, ROUTE_NAMES.HOME)
 }
 
+export function goBack() {
+    requestRouteChange(ROUTE_CHANGE_TYPE.POP)
+}
+
+function requestRouteChange(type, routeName, routeParams) {
+    EventEmitter.emit(EVENT_REQUEST_ROUTE_CHANGE, {
+        type,
+        routeName,
+        routeParams
+    })
+}

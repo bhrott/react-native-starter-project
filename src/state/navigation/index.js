@@ -2,10 +2,14 @@
  * @providesModule @state/navigation
  */
 
-import { goToHome, resetToLogin, pop } from './actions'
+import { pushToHome, resetToLogin, goBack, EVENT_REQUEST_ROUTE_CHANGE, ROUTE_CHANGE_TYPE, ROUTE_NAMES } from './actions'
 
 module.exports = {
-    goToHome,
+    pushToHome,
     resetToLogin,
-    pop
+    goBack,
+
+    EVENT_REQUEST_ROUTE_CHANGE,
+    ROUTE_CHANGE_TYPE,
+    ROUTE_NAMES
 }
