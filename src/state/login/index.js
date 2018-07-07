@@ -2,7 +2,7 @@
  * @providesModule @state/login
  */
 
-import { signIn, signOut } from './actions'
+import { signIn, signOut } from './login.actions'
 
 module.exports = {
     signIn,

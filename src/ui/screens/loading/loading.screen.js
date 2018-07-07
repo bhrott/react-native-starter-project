@@ -1,15 +1,17 @@
 
 import React from 'react'
-import { View, Button } from 'react-native'
+import { View } from 'react-native'
 import { connect } from 'react-redux'
 import EStyleSheet from 'react-native-extended-stylesheet'
 
-import { goBack } from '@state/navigation'
+import { Text } from '@ui/components'
 
-import BaseScreen from '../BaseScreen'
+import { finish } from '@state/loading'
+
+import BaseScreen from '../base.screen'
 
 const mapStateToProps = state => {
-    return {}
+    return state.loading
 }
 
 const mapDispatchToProps = dispatch => {
@@ -18,17 +20,11 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-class HomeScreen extends BaseScreen {
+class LoadingScreen extends BaseScreen {
     renderContent() {
         return (
             <View style={styles.container}>
-                <Button
-                    onPress={() => {
-                        goBack()
-                    }}
-                    title="Go Back"
-                    color="#841584"
-                />
+                <Text textKey={'loading:title'} />
             </View>
         )
     }
@@ -45,4 +41,4 @@ const styles = EStyleSheet.create({
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(HomeScreen)
+)(LoadingScreen)

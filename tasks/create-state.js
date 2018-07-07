@@ -63,8 +63,8 @@ module.exports = {
 }
 `
 
-fs.writeFileSync(`${stateFolder}/actions.js`, actionsFileContent)
-fs.writeFileSync(`${stateFolder}/reducer.js`, reducerFileContent)
+fs.writeFileSync(`${stateFolder}/${stateName}.actions.js`, actionsFileContent)
+fs.writeFileSync(`${stateFolder}/${stateName}.reducer.js`, reducerFileContent)
 fs.writeFileSync(`${stateFolder}/index.js`, indexFileContent)
 
 console.log(`State created in ${stateFolder}`)

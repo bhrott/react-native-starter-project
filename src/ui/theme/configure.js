@@ -1,11 +1,11 @@
 import EStyleSheet from 'react-native-extended-stylesheet'
-import ColorPalette from './ColorPalette'
+import colorPalette from './color-palette'
 
 export default () => {
     EStyleSheet.build({
-        $colorPrimary: ColorPalette.primary,
-        $colorPageBackground: ColorPalette.pageBackground,
-        $colorDarkAccent: ColorPalette.darkAccent,
+        $colorPrimary: colorPalette.primary,
+        $colorPageBackground: colorPalette.pageBackground,
+        $colorDarkAccent: colorPalette.darkAccent,
         $paddingSpace: 20
     })
 }

@@ -1,6 +1,6 @@
 import { call, takeLatest } from 'redux-saga/effects'
 
-import { finish, ACTION_FINISH } from './actions'
+import { finish, ACTION_FINISH } from './loading.actions'
 import { pushToHome } from '../navigation'
 
 function* _finish(action) {

@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 import { Text } from '@ui/components'
 import { signIn } from '@state/login'
 
-import BaseScreen from '../BaseScreen'
+import BaseScreen from '../base.screen'
 
 const mapStateToProps = state => {
     return state.login

@@ -3,7 +3,7 @@
  * @providesModule @state/loading
  */
 
-import { finish } from './actions'
+import { finish } from './loading.actions'
 
 module.exports = {
     finish

@@ -4,12 +4,12 @@ import { View, Button } from 'react-native'
 import { connect } from 'react-redux'
 import EStyleSheet from 'react-native-extended-stylesheet'
 
-import { finish } from '@state/loading'
+import { goBack } from '@state/navigation'
 
-import BaseScreen from '../BaseScreen'
+import BaseScreen from '../base.screen'
 
 const mapStateToProps = state => {
-    return state.loading
+    return {}
 }
 
 const mapDispatchToProps = dispatch => {
@@ -18,15 +18,15 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-class LoadingScreen extends BaseScreen {
+class HomeScreen extends BaseScreen {
     renderContent() {
         return (
             <View style={styles.container}>
                 <Button
                     onPress={() => {
-                        this.props.dispatch(finish())
+                        goBack()
                     }}
-                    title="Finish"
+                    title="Go Back"
                     color="#841584"
                 />
             </View>
@@ -45,4 +45,4 @@ const styles = EStyleSheet.create({
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(LoadingScreen)
+)(HomeScreen)

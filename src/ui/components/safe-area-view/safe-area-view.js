@@ -3,11 +3,7 @@ import { View, StyleSheet, SafeAreaView, Platform } from 'react-native'
 
 const Container = Platform.OS === 'android' ? View : SafeAreaView
 
-export default class SafeAreaViewComponent extends React.Component {
-    constructor(props) {
-        super(props)
-    }
-
+export default class SafeAreaViewComponent extends React.PureComponent {
     render() {
         return (
             <Container style={styles.container}>

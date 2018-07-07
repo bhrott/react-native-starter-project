@@ -1,9 +1,9 @@
 /**
  * @providesModule @ui/screens
  */
-import LoginScreen from './login/LoginScreen'
-import HomeScreen from './home/HomeScreen'
-import LoadingScreen from './loading/LoadingScreen'
+import LoginScreen from './login/login.screen'
+import HomeScreen from './home/home.screen'
+import LoadingScreen from './loading/loading.screen'
 
 module.exports = {
     LoginScreen,

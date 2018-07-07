@@ -1,4 +1,4 @@
-import { ACTION_FINISH } from './actions'
+import { ACTION_FINISH } from './loading.actions'
 
 const initialState = {
     finished: false

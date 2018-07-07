@@ -2,8 +2,8 @@
  * @providesModule @ui/router
  */
 
-import RootRouter from './RootRouter'
-import NavigationManager from './NavigationManager'
+import RootRouter from './root-router'
+import NavigationManager from './navigation-manager'
 
 module.exports = {
     RootRouter,

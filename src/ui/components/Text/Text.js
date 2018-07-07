@@ -12,11 +12,7 @@ function getText(key) {
     return currentTranslation[key] || key
 }
 
-export default class APText extends React.Component {
-    constructor(props) {
-        super(props)
-    }
-
+export default class APText extends React.PureComponent {
     render() {
         return <Text {...this.props}>{getText(this.props.textKey)}</Text>
     }

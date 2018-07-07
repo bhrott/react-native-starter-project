@@ -1,12 +1,13 @@
 {
-    "name": "ReactNativeStarterProject",
+    "name": "react-native-starter-project",
     "version": "0.0.1",
     "private": true,
     "scripts": {
         "start": "node node_modules/react-native/local-cli/cli.js start",
         "test": "jest",
         "create-state": "node tasks/create-state.js",
-        "create-screen": "node tasks/create-screen.js"
+        "create-screen": "node tasks/create-screen.js",
+        "create-component": "node tasks/create-component.js"
     },
     "dependencies": {
         "prop-types": "^15.6.2",

@@ -1,7 +1,7 @@
 import appStore from '../store'
 import { push } from '../navigation'
 
-import { ACTION_SIGNIN, ACTION_SIGNOUT } from './actions'
+import { ACTION_SIGNIN, ACTION_SIGNOUT } from './login.actions'
 
 const initialState = {
     email: '',
