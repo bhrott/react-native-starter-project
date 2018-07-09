@@ -33,35 +33,35 @@ export default class BaseScreen extends React.Component {
     }
 
     /**
-     * Override this method for WillFocus events
+     * Occurs when the screen will be presented to user
      * @param {*} event the lifecycle event form navigation
      */
     screenWillFocus(event) {
-
+        // todo: override me if you need.
     }
 
     /**
-     * Override this method for DidFocus events
+     * Occurs when the screen is visible to user
      * @param {*} event the lifecycle event form navigation
      */
     screenDidFocus(event) {
-
+        // todo: override me if you need.
     }
 
     /**
-     * Override this method for DidBlur events
+     * Occurs when the screen goes to background (other screen becomes active or app is putted in background)
      * @param {*} event the lifecycle event form navigation
      */
     screenDidBlur(event) {
-
+        // todo: override me if you need.
     }
 
     /**
-     * Override this method for WillBlur events
+     * Occurs when the screen is going to background (other view will become active or app will be put in background)
      * @param {*} event the lifecycle event form navigation
      */
     screenWillBlur(event) {
-
+        // todo: override me if you need.
     }
 
     /**
