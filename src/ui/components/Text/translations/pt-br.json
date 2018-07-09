@@ -1,4 +1,6 @@
 {
     "hello": "world",
-    "loading:title": "Loading..."
+    "loading:title": "Loading...",
+    "field:email": "e-mail",
+    "invalid_field:email": "This e-mail is invalid =("
 }

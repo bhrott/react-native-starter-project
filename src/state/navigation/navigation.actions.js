@@ -8,12 +8,7 @@ export const ROUTE_CHANGE_TYPE = {
 }
 export const ROUTE_NAMES = {
     LOADING: 'Loading',
-    LOGIN: 'Login',
     HOME: 'Home'
-}
-
-export function resetToLogin() {
-    requestRouteChange(ROUTE_CHANGE_TYPE.RESET, ROUTE_NAMES.LOGIN)
 }
 
 export function pushToHome() {

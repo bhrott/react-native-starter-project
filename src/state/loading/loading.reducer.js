@@ -1,13 +1,14 @@
-import { ACTION_FINISH } from './loading.actions'
+
+import { ACTION_IN_LOADING } from './loading.actions'
 
 const initialState = {
-    finished: false
+    isLoading: false
 }
 
 function reducer(state = initialState, action) {
     switch (action.type) {
-        case ACTION_FINISH:
-            return { finished: true }
+        case ACTION_IN_LOADING:
+            return { isLoading: action.payload }
     }
 
     return state

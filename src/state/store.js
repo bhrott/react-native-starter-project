@@ -1,13 +1,11 @@
 import { combineReducers, createStore, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 
-import loginReducer from './login/login.reducer'
 import loadingReducer from './loading/loading.reducer'
 
-import loadingSagas from './loading/loading.sagas'
+import loadingSaga from './loading/loading.saga'
 
 const appReducer = combineReducers({
-    login: loginReducer,
     loading: loadingReducer
 })
 
@@ -18,6 +16,6 @@ const appStore = createStore(
     applyMiddleware(sagaMiddleware)
 )
 
-sagaMiddleware.run(loadingSagas)
+loadingSaga(sagaMiddleware)
 
 export default appStore

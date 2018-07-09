@@ -1,6 +1,7 @@
 const fs = require('fs')
 
 const stateName = process.argv[2]
+const createSaga = process.argv[3] === 'saga'
 
 if (!stateName) {
     console.log('The state name is required.')
@@ -31,7 +32,7 @@ module.exports = {
 `
 
 const reducerFileContent = `
-import { ACTION_FOO } from './actions'
+import { ACTION_FOO } from './${stateName}.actions'
 
 const initialState = {
     foo: 'baz'
@@ -39,10 +40,7 @@ const initialState = {
 
 function reducer(state = initialState, action) {
     switch (action.type) {
-        case ACTION_FOO:
-            return Object.assign({}, state, {
-                message: action.type
-            })
+        // todo: handle action
     }
 
     return state
@@ -56,12 +54,33 @@ const indexFileContent = `
  * @providesModule @state/${stateName}
  */
 
-import { foo } from './actions'
+import { foo } from './${stateName}.actions'
 
 module.exports = {
     foo
 }
 `
+const sagaFileContent = `
+import { put, takeLatest } from 'redux-saga/effects'
+
+import { ACTION_FOO, foo } from './${stateName}.actions'
+
+function* _foo(action) {
+    yield put(foo())
+}
+
+function* fooSaga() {
+    yield takeLatest(ACTION_FOO, _foo);
+}
+
+export default sagaMiddleware => {
+    sagaMiddleware.run(fooSaga)
+}
+`
+
+if (createSaga) {
+    fs.writeFileSync(`${stateFolder}/${stateName}.saga.js`, sagaFileContent)
+}
 
 fs.writeFileSync(`${stateFolder}/${stateName}.actions.js`, actionsFileContent)
 fs.writeFileSync(`${stateFolder}/${stateName}.reducer.js`, reducerFileContent)

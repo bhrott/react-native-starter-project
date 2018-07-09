@@ -1,5 +1,7 @@
+
 const prefix = 'LOADING'
-const ACTION_FINISH = `${prefix}.ACTION_FINISH`
+const ACTION_FINISH = `${prefix}.FINISH`
+const ACTION_IN_LOADING = `${prefix}.IN_LOADING`
 
 function finish() {
     return {
@@ -7,7 +9,16 @@ function finish() {
     }
 }
 
+function setInLoading(inLoading) {
+    return {
+        type: ACTION_IN_LOADING,
+        payload: inLoading
+    }
+}
+
 module.exports = {
     ACTION_FINISH,
-    finish
+    ACTION_IN_LOADING,
+    finish,
+    setInLoading
 }

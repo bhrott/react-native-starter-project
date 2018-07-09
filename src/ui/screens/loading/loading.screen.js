@@ -21,6 +21,14 @@ const mapDispatchToProps = dispatch => {
 }
 
 class LoadingScreen extends BaseScreen {
+    _load() {
+        this.props.dispatch(finish())
+    }
+
+    screenDidFocus() {
+        this._load()
+    }
+
     renderContent() {
         return (
             <View style={styles.container}>
