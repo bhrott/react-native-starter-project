@@ -2,8 +2,8 @@
  * @providesModule @ui/components
  */
 
-import SafeAreaView from './safe-area-view/safe-area-view'
-import Text from './text/text'
+import SafeAreaView from './safe-area-view/app-safe-area-view'
+import Text from './text/app-text'
 
 module.exports = {
     SafeAreaView,
