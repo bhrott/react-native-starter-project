@@ -2,11 +2,11 @@ import React from 'react'
 import { Text } from 'react-native'
 import PropTypes from 'prop-types'
 
-const internotializations = {
-    pt_br: () => require('./internotializations/pt-br.json')
+const translations = {
+    pt_br: () => require('./translations/pt-br.json')
 }
 
-let currentTranslation = internotializations.pt_br()
+let currentTranslation = translations.pt_br()
 
 function getText(key) {
     return currentTranslation[key] || key
